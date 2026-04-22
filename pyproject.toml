@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wordle-ga-deap"
+version = "0.1.0"
+description = "Wordle solver and benchmark scaffold using DEAP."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "deap>=1.4,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<9",
+]
+
+[project.scripts]
+wordle-ga = "benchmark:main"
+
+[tool.setuptools]
+py-modules = ["benchmark", "baselines", "ga_solver", "wordle", "main"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
